@@ -3,7 +3,7 @@
 - After setting you can run the project
 
 
-##About The Project
+## About The Project
 - When you run the project, there will be 2 tables in the database, users and wallets.
 - First register and then login, otherwise API doesn't allow to get or post datas. 
 - To check errors, you can try to get users or other endpoints before registiration 
