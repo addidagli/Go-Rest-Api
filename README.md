@@ -38,14 +38,14 @@ it won't allow to play but you can change your debit amount if it is less than b
 }
 ```
 
-- http://localhost:8080/api/addWallet       /*Please follow the format below add new wallet*/
+- http://localhost:8080/api/addWallet       /*To add new wallet please follow the format below*/
 ```
 {
     "userId": 1                    //it will create a wallet for user who has 1 id
 }
 ```
 
-- http://localhost:8080/api/wallets/{walletid}/credit /*Please follow the format below add new wallet*/
+- http://localhost:8080/api/wallets/{walletid}/credit /*To add credit please follow the format below*/
 ```
 {
     "credit": 50            //it will add 50 credit to balance. Credit can not be less than 0
@@ -53,7 +53,7 @@ it won't allow to play but you can change your debit amount if it is less than b
 ```
   
 
-- http://localhost:8080/api/wallets/{walletid}/debit
+- http://localhost:8080/api/wallets/{walletid}/debit /*To subtract debit please follow the format below*/
 ```
 {
     "debit": 30               //it will subtract 30 from balance. Debit can not be less than 0
@@ -70,4 +70,3 @@ it won't allow to play but you can change your debit amount if it is less than b
 - http://localhost:8080/api/getAllUser        /*get All Users*/
 
 - http://localhost:8080/api/wallets/{walletid}/balance     /*get wallet by given*/
-
