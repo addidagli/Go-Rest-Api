@@ -113,8 +113,6 @@ func GetUser(writer http.ResponseWriter, request *http.Request) {
 
 	id := mux.Vars(request)["id"]
 
-	println("id: ", id)
-
 	db := connections.GetConnection()
 	defer db.Close()
 
@@ -151,8 +149,6 @@ func Logout(writer http.ResponseWriter, request *http.Request) {
 
 	id := mux.Vars(request)["id"]
 
-	println("id: ", id)
-
 	db := connections.GetConnection()
 	defer db.Close()
 
@@ -160,6 +156,13 @@ func Logout(writer http.ResponseWriter, request *http.Request) {
 	if user.Token != "" {
 		if result.RowsAffected > 0 {
 			db.Model(&user).Where("id = ?", id).Update("token", "")
+
+			http.SetCookie(writer,
+				&http.Cookie{
+					Name:    "jwt",
+					Value:   "",
+					Expires: time.Now().Add(-time.Hour),
+				})
 			json, _ := json.Marshal(user)
 
 			connections.SendReponse(writer, http.StatusOK, json)

@@ -66,8 +66,6 @@ func GetBalance(writer http.ResponseWriter, request *http.Request) {
 
 	id := mux.Vars(request)["id"]
 
-	println("id: ", id)
-
 	db := connections.GetConnection()
 	defer db.Close()
 
@@ -102,8 +100,6 @@ func AddCredit(writer http.ResponseWriter, request *http.Request) {
 	user := models.User{}
 
 	id := mux.Vars(request)["id"]
-
-	println("id: ", id)
 
 	db := connections.GetConnection()
 	defer db.Close()
